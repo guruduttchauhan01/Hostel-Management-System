@@ -1,19 +1,19 @@
-package com.guru.hostelmanagementsystem;
+package com.guru;
 
-import java.sql.Date;
+//import java.sql.Date;
 import java.text.ParseException;
 import java.util.*;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+//import org.hibernate.Transaction;
+//import org.hibernate.cfg.Configuration;
 
-import com.guru.daoImpl.DepartmentImpl;
+import com.guru.daoImpl.DepartmentsDaoImpl;
 import com.guru.defualtEntries.DefaultEntries;
 //import com.guru.entities.Block;
 import com.guru.entities.Departments;
-import com.guru.entities.Employee;
+//import com.guru.entities.Employee;
 import com.guru.util.HibernateUtil;
 //import com.guru.entities.Room;
 //import com.guru.entities.Student;
@@ -160,18 +160,43 @@ public class App {
 //		session.close();
 //		factory.close();
 
-		DepartmentImpl d = new DepartmentImpl();
-		DefaultEntries entries = new DefaultEntries();
+//		DepartmentImpl d = new DepartmentImpl();
+//		DefaultEntries de = new DefaultEntries();
+//		
+//		SessionFactory factory = HibernateUtil.getSessionFactory();
+//		Session session = factory.openSession();
+//		session.beginTransaction();
+//		de.setDepartments();
+//		Departments dpt = d.getDepartment("GF/01");
+//		System.out.println(dpt);
+//		System.out.println(d.getAllDepartments());
+//		session.close();
+//		factory.close();
 		
-		SessionFactory factory = HibernateUtil.getSessionFactory();
-		Session session = factory.openSession();
+		mainOps();
 		
-		Transaction tx = session.beginTransaction();
-		entries.setDepartments();
-		
-		d.getDepartment("GF/01");
-		session.close();
-		factory.close();
-		
+	}
+	
+	public static void mainOps() {
+		while(true) {
+			String mainMenu = """
+					--------------------------------------------------------------------------------------
+					NOTE: If you haven't setup you Hostel setup before selecting anything to setup press 1.
+					--------------------------------------------------------------------------------------
+					Press 1: Start setup the Hostel Management System
+					Press 2: Get Hostel Details
+					Press 3: Get Employee Details
+					Press 4: Get Student Details
+					***********Press 5/q/quit: to exit***********
+					""";
+			System.out.println(mainMenu);
+			System.out.print("Enter your input: ");
+			String i = input.nextLine();
+			if(i.equals("5") || i.equals("q") || i.equals("quit")) {
+				break;
+			} else if (i.equals("1")) {
+				
+			}
+		}
 	}
 }

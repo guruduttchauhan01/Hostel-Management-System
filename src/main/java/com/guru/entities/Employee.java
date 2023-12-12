@@ -33,7 +33,7 @@ public class Employee {
 	private Departments department;
 	
 	@ManyToOne
-	@JoinColumn(name = "block_no")
+	@JoinColumn(name = "hostel_no")
 	private Hostel hostel;
 
 	public int getEmployeesNumber() {
@@ -94,10 +94,10 @@ public class Employee {
 	public void setDepartment(Departments department) {
 		this.department = department;
 	}
-	public Hostel getBlock() {
+	public Hostel getHostel() {
 		return hostel;
 	}
-	public void setBlock(Hostel hostel) {
+	public void setHostel(Hostel hostel) {
 		this.hostel = hostel;
 	}
 	

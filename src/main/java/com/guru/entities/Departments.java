@@ -45,6 +45,10 @@ public class Departments {
 	public void setEmployees(List<Employee> employee) {
 		this.employee = employee;
 	}
+	@Override
+	public String toString() {
+		return "Department Number = " + departmentNumber + " : DepartmentName = " + departmentName;
+	}
 
 	
 	
