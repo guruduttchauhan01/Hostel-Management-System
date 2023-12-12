@@ -18,7 +18,7 @@ public class Room {
 	private int roomCapacity;
 	
 	@ManyToOne
-	@JoinColumn(name = "block_name")
+	@JoinColumn(name = "hostel_name")
 	private Hostel hostel;
 	
 	@OneToMany(mappedBy = "room")

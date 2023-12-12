@@ -1,4 +1,4 @@
-package daoInterface;
+package com.guru.daoInterface;
 
 import java.util.List;
 

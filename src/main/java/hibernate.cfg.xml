@@ -12,9 +12,9 @@
 		<property name="hbm2ddl.auto">create</property>
 		<property name="show_sql">true</property>
 		<mapping class="com.guru.entities.Student" />
-		<mapping class="com.guru.entities.Block" />
+		<mapping class="com.guru.entities.Hostel" />
 		<mapping class="com.guru.entities.Room" />
 		<mapping class="com.guru.entities.Departments" />
-		<mapping class="com.guru.entities.Employees" />
+		<mapping class="com.guru.entities.Employee" />
 	</session-factory>
 </hibernate-configuration>

@@ -34,7 +34,7 @@ public class Student {
 	private String contact;
 	private String address;
 	@ManyToOne
-	@JoinColumn(name = "block_name")
+	@JoinColumn(name = "hostel_name")
 	private Hostel hostel;
 	@ManyToOne
 	@JoinColumn(name = "room")

@@ -9,9 +9,12 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import com.guru.daoImpl.DepartmentImpl;
+import com.guru.defualtEntries.DefaultEntries;
 //import com.guru.entities.Block;
 import com.guru.entities.Departments;
 import com.guru.entities.Employee;
+import com.guru.util.HibernateUtil;
 //import com.guru.entities.Room;
 //import com.guru.entities.Student;
 //
@@ -126,34 +129,47 @@ public class App {
 //		session.close();
 
 		
-		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+//		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+//		
+//		Departments dp = new Departments();
+//		
+//		dp.setDepartmentNumber("SDE001");
+//		dp.setDepartmentName("Software Developer Engineer");
+//		
+//		Employee e = new Employee();
+//		e.setFirstName("Guru");
+//		e.setLastName("Dutt");
+//		e.setDob(Date.valueOf("2000-02-01"));
+//		e.setContact("8278889005");
+//		e.setDepartment(dp);
+//		e.setAddress("Solan");
+//		e.setSalary(20000);
+//		List<Employee> em = new ArrayList<Employee>();
+//		em.add(e);
+//		dp.setEmployee(em);
+//		
+//		Session session = factory.openSession();
+//		
+//		Transaction tx = session.beginTransaction();
+//		
+//		session.save(dp);
+//		session.save(e);
+//		
+//		tx.commit();
+//		
+//		session.close();
+//		factory.close();
+
+		DepartmentImpl d = new DepartmentImpl();
+		DefaultEntries entries = new DefaultEntries();
 		
-		Departments dp = new Departments();
-		
-		dp.setDepartmentNumber("SDE001");
-		dp.setDepartmentName("Software Developer Engineer");
-		
-		Employee e = new Employee();
-		e.setFirstName("Guru");
-		e.setLastName("Dutt");
-		e.setDob(Date.valueOf("2000-02-01"));
-		e.setContact("8278889005");
-		e.setDepartment(dp);
-		e.setAddress("Solan");
-		e.setSalary(20000);
-		List<Employee> em = new ArrayList<Employee>();
-		em.add(e);
-		dp.setEmployee(em);
-		
+		SessionFactory factory = HibernateUtil.getSessionFactory();
 		Session session = factory.openSession();
 		
 		Transaction tx = session.beginTransaction();
+		entries.setDepartments();
 		
-		session.save(dp);
-		session.save(e);
-		
-		tx.commit();
-		
+		d.getDepartment("GF/01");
 		session.close();
 		factory.close();
 		

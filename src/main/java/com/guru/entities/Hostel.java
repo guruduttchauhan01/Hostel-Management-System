@@ -10,18 +10,18 @@ import javax.persistence.OneToMany;
 @Entity
 public class Hostel {
 	@Id
-	@Column(name = "block_name")
-	private String blockName;
+	@Column(name = "hostel_name")
+	private String hostelName;
 	private int capacity;
 	@Column(name = "total_rooms")
 	private int totalRooms;
-	@OneToMany(mappedBy = "block")
+	@OneToMany(mappedBy = "hostel")
 	private List<Room> rooms;
 	
-	@OneToMany(mappedBy = "block")
+	@OneToMany(mappedBy = "hostel")
 	private List<Student> students;
 	
-	@OneToMany(mappedBy = "block")
+	@OneToMany(mappedBy = "hostel")
 	private List<Employee> employee;
 	
 	
@@ -36,7 +36,7 @@ public class Hostel {
 		this.students = students;
 	}
 	public String getBlockName() {
-		return blockName;
+		return hostelName;
 	}
 	public List<Room> getRooms() {
 		return rooms;
@@ -45,7 +45,7 @@ public class Hostel {
 		this.rooms = rooms;
 	}
 	public void setBlockName(String blockName) {
-		this.blockName = blockName;
+		this.hostelName = blockName;
 	}
 	public int getCapacity() {
 		return capacity;
