@@ -27,6 +27,7 @@ public class DepartmentsDaoImpl implements DepartmentsDAO {
 
 
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Departments> getAllDepartments() {
 		try(Session session=HibernateUtil.getSession()) {

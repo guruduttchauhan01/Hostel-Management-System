@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -12,6 +14,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Room {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "room_no")
 	private int roomNo;
 	@Column(name = "room_capacity")
@@ -24,7 +27,11 @@ public class Room {
 	@OneToMany(mappedBy = "room")
 	private List<Student> students;
 	
-	
+	public Room(int roomCapacity, Hostel hostel) {
+		super();
+		this.roomCapacity = roomCapacity;
+		this.hostel = hostel;
+	}
 	public List<Student> getStudents() {
 		return students;
 	}
@@ -49,6 +56,11 @@ public class Room {
 	public void setBlock(Hostel hostel) {
 		this.hostel = hostel;
 	}
+	@Override
+	public String toString() {
+		return "Room No: " + roomNo + "\nRoom Capacity: " + roomCapacity + "\nHostel: " + hostel.getHostelName();
+	}
+	
 	
 	
 }

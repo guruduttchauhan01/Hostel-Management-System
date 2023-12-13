@@ -11,7 +11,7 @@ public class HostelServiceImpl implements HostelService {
 	@Override
 	public Hostel createHostel(Hostel hostel) {
 		// TODO Auto-generated method stub
-		return hostelDao.creatHostel(hostel);
+		return hostelDao.createHostel(hostel);
 	}
 
 	@Override

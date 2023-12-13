@@ -43,10 +43,9 @@ public class Student {
 	
 	
 	
-	public Student(int studentId, String first_name, String last_name, char gender, Date dob, String email,
+	public Student(String first_name, String last_name, char gender, Date dob, String email,
 			String contact, String address, Hostel hostel, Room roomNo) {
 		super();
-		this.studentId = studentId;
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.gender = gender;

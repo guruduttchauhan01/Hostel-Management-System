@@ -1,10 +1,11 @@
 package com.guru.service;
 
+import java.util.List;
+
 import com.guru.entities.Room;
 
 public interface RoomService {
-	Room getRoom(int number);
-	Room getRoomCapacity();
-	Room getTotalStudent();
-	Room getStudent();
+	List<Room> setRoom(List<Room> rooms);
+	Room getRoom(int roomNumber);
+	int getRoomCapacity(int roomNumber);
 }

@@ -6,27 +6,12 @@ import java.util.*;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-//import org.hibernate.Transaction;
-//import org.hibernate.cfg.Configuration;
 
-import com.guru.daoImpl.DepartmentsDaoImpl;
-import com.guru.defualtEntries.DefaultEntries;
-//import com.guru.entities.Block;
-import com.guru.entities.Departments;
-//import com.guru.entities.Employee;
+import com.guru.daoImpl.HostelDaoImpl;
+import com.guru.daoInterface.HostelDAO;
+import com.guru.entities.Hostel;
 import com.guru.util.HibernateUtil;
-//import com.guru.entities.Room;
-//import com.guru.entities.Student;
-//
-//import com.guru.fetching.FetchStudent;
-//import com.guru.insertion.StudentInsertion;
 
-//import java.io.FileInputStream;
-
-/**
- * Hello world!
- *
- */
 public class App {
 	public static Scanner input = new Scanner(System.in);
 
@@ -175,6 +160,7 @@ public class App {
 		
 		mainOps();
 		
+		
 	}
 	
 	public static void mainOps() {
@@ -187,7 +173,9 @@ public class App {
 					Press 2: Get Hostel Details
 					Press 3: Get Employee Details
 					Press 4: Get Student Details
+					
 					***********Press 5/q/quit: to exit***********
+					
 					""";
 			System.out.println(mainMenu);
 			System.out.print("Enter your input: ");
@@ -195,7 +183,7 @@ public class App {
 			if(i.equals("5") || i.equals("q") || i.equals("quit")) {
 				break;
 			} else if (i.equals("1")) {
-				
+				AllOperations.hostelSetUp();
 			}
 		}
 	}

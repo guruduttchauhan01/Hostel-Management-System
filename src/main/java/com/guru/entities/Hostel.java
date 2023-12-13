@@ -27,6 +27,14 @@ public class Hostel {
 	
 	
 	
+	public Hostel(String hostelName, int capacity, int totalRooms) {
+		super();
+		this.hostelName = hostelName;
+		this.capacity = capacity;
+		this.totalRooms = totalRooms;
+	}
+
+
 	public List<Student> getStudents() {
 		return students;
 	}
@@ -35,7 +43,7 @@ public class Hostel {
 	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
-	public String getBlockName() {
+	public String getHostelName() {
 		return hostelName;
 	}
 	public List<Room> getRooms() {
@@ -44,8 +52,8 @@ public class Hostel {
 	public void setRooms(List<Room> rooms) {
 		this.rooms = rooms;
 	}
-	public void setBlockName(String blockName) {
-		this.hostelName = blockName;
+	public void setHostelName(String hostelName) {
+		this.hostelName = hostelName;
 	}
 	public int getCapacity() {
 		return capacity;
@@ -59,6 +67,13 @@ public class Hostel {
 	public void setTotalRooms(int totalRooms) {
 		this.totalRooms = totalRooms;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Hostel Name: " + hostelName + "\nCapacity: " + capacity + "\nTotal Rooms: " + totalRooms;
+	}
+	
 	
 	
 
