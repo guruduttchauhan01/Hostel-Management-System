@@ -1,5 +1,7 @@
 package com.guru;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -41,17 +43,17 @@ public class AllOperations {
 	}
 	
 	public static void hostelSetUp() {
-		String startUp = """
+		String hostelStartUp = """
 				
 				==========================Enter Below Details==========================
 				Then we set up the room and then departments after that you are ready
 				
 				""";
-		System.out.println(startUp);
+		System.out.println(hostelStartUp);
 		Hostel hostel = setUpHostel();
 		Hostel savedEntity = hs.createHostel(hostel);
 		System.out.println("\n\n"+"*".repeat(10)+"Hostel has been created successfully!!!!" + "*".repeat(10) + "\n" + savedEntity);
-		System.out.println("*".repeat(25));
+		System.out.println("*".repeat(100));
 		
 		//Setting up room
 		String roomStartUp = """
@@ -67,6 +69,15 @@ public class AllOperations {
 		
 		
 		//Setting up Departments
+		String departmentSetUp = """
+				
+				==========================Enter Below Details==========================
+									Let's start building our departments
+				
+				""";
+		System.out.println(departmentSetUp);
+		setUpDepartment();
+		System.out.println("\n\n" + "*".repeat(10) + "Departments has been setup successfully!!!" + "*".repeat(10) + "\n");
 	}
 	
 	public static List<Room> setUpRoom(Hostel hostel) {
@@ -82,13 +93,187 @@ public class AllOperations {
 	}
 	
 	
-	public static Departments setUpDepartment() {
-		return null;
+	public static void setUpDepartment() {
+		String option = """
+				
+				***********************Choose one option***********************
+				
+				1. Set Default Departments
+				2. Manually Set Departments
+				
+				""";
+		System.out.println(option);
+		System.out.print("Enter your option: ");
+		int opt = input.nextInt();
+		if (opt == 1) {
+			//Adding Default departments
+			Departments administration = new Departments();
+			administration.setDepartmentName("Manager");
+			administration.setDepartmentNumber("GF/01");
+			
+			Departments accomdationDept = new Departments();
+			accomdationDept.setDepartmentName("Room Maintainace");
+			accomdationDept.setDepartmentNumber("GF/02");
+			
+			Departments foodDepartment = new Departments();
+			foodDepartment.setDepartmentName("Kitchen Staff");
+			foodDepartment.setDepartmentNumber("GF/03");
+			
+			Departments securityDept = new Departments();
+			securityDept.setDepartmentName("Security");
+			securityDept.setDepartmentNumber("GF/04");
+			
+			ds.createDepartment(administration);
+			ds.createDepartment(accomdationDept);
+			ds.createDepartment(foodDepartment);
+			ds.createDepartment(securityDept);
+		} else if(opt == 2) {
+			//Manually department
+			while(true) {
+				String departmentOptions = """
+						1. Create department
+						2. Exit
+						""";
+				System.out.println(departmentOptions);
+				
+				//Asking user for input to choose exit or create department
+				System.out.print("Enter option: ");
+				int inp = input.nextInt();
+				if (inp == 1) {
+					//Creating department using inputs from user
+					System.out.print("Enter department number: ");
+					String dptNumber = input.nextLine();
+					System.out.println("Enter department name: ");
+					String dptName = input.nextLine();
+					
+					ds.createDepartment(new Departments(dptNumber, dptName));
+					
+				} else if(inp == 2) {
+					break;
+				} else {
+					System.out.println("!!Invalid Option!!");
+				}
+				
+			}
+		} else {
+			System.out.println("!!Invalid Input!!");
+		}
 	}
-	public static Employee createEmployee() {
-		return null;
+	
+	
+	public static void employeeOperations() {
+		Employee employee = new Employee();
+		System.out.println(employee);
 	}
-	public static Student createStudent() {
-		return null;
+	
+	
+	public static void studentOperations() {
+		String menu = "-".repeat(50) + "\n"
+    			+ "1. Check Student details\n"
+    			+ "2. Insert Student details\n"
+    			+ "3. Exit\n"
+    			+ "NOTE: PICK ONE OPTION FROM ABOVE OPTIONS\n"
+    			+ "-".repeat(50);
+    	while(true) {
+    		System.out.println(menu);
+    		System.out.print("Enter option: ");
+    		int option = input.nextInt();
+    		
+    		if(option == 1) {
+    			System.out.print("Enter student id: ");
+    			int id = input.nextInt();
+    			
+    			ss.getStudent(id);
+    			
+    		} else if (option == 2) {
+    			Student student = new Student();
+    	    	
+    	    	System.out.print("Enter first name: ");
+    	    	String first_name = input.nextLine();
+    	    	student.setFirst_name(first_name);
+    	    	
+    	    	System.out.print("Enter last name: ");
+    	    	String last_name = input.nextLine();
+    	    	student.setLast_name(last_name);
+    	    	
+    	    	System.out.println("Male/Female/Other");
+    	    	System.out.print("Enter your gender: ");
+    	    	String gender = input.next().toUpperCase();
+    	    	student.setGender(gender.charAt(0));
+    	    	
+    	    		int year;
+    	    		int currentYear = LocalDate.now().getYear();
+    	        	while(true) {
+    	        		System.out.print("Enter your DOB(Date Of Birth) year: ");
+    	        		year = input.nextInt();
+    	        		if(year >= 1900 && year < currentYear) {
+    	        			break;
+    	        		}else {
+    	        			System.out.println("Not Valid!!!");
+    	        			continue;
+    	        		}
+    	        		
+    	        	}
+    	        	
+    	        	int month;
+    	        	while(true) {
+    	        		System.out.print("Enter your DOB(Date Of Birth in number) month: ");
+    	        		month = input.nextInt();
+    	        		if(month >= 1 && month <= 12) {
+    	        			break;
+    	        		}else {
+    	        			System.out.println("Not Valid!!!");
+    	        			continue;
+    	        		}
+    	        	}
+    	        	int day;
+    	        	while(true) {
+    	        		System.out.print("Enter your DOB(Date Of Birth in number) day: ");
+    	        		day = input.nextInt();
+    	        		input.nextLine();
+    	        		String c = "";
+    	        		switch(month) {
+    	        			case 1: case 3: case 5: case 7: case 8: case 10: case 12: c += "a"; break;
+    	        			case 4: case 6: case 9: case 11: c += "b"; break;
+    	        			case 2 : c += "c"; break;
+    	        		}
+    	        		if(c.equals("a") && day >= 01 && day <= 31) {
+    	        			break;
+    	        		}else if (c.equals("b") && day >= 01 && day <= 30){
+    	        			break;
+    	        		}else if(c.equals("c") && day >= 1 && day <= 29) {
+    	        			break;
+    	        		} else {
+    	        			System.out.println("Not Valid!!!" + c + day + month);
+    	        			continue;
+    	        		}
+    	        	}
+    	    		String dd = year + "-" + month + "-" + day;
+    	    		student.setDob(Date.valueOf(dd));
+    	    		input.next();
+    	    		
+    	    		
+    	    	System.out.print("Enter address: ");
+    	    	String address = input.nextLine();
+    	    	student.setAddress(address);
+    	    	
+    	    	System.out.print("Enter contact number: ");
+    	    	String contactNumber = input.nextLine();
+    	    	student.setContact(contactNumber);
+    	    	
+    	    	System.out.print("Enter email: ");
+    	    	String email = input.nextLine();
+    	    	student.setEmail(email);
+    	    	
+    	    	ss.createStudent(student);
+    			System.out.println("\n\n\t\t\tSuccessfully Inserted Data\n\n\n");
+    			continue;
+    		} else if (option == 3) {
+    			input.close();
+    			return;
+    		} else {
+    			System.out.println("Invalid Input!!!");
+    		}
+    	}
 	}
 }

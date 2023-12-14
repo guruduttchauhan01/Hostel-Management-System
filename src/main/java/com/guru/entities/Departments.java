@@ -21,6 +21,16 @@ public class Departments {
 	
 	
 	
+	public Departments(String departmentNumber, String departmentName) {
+		super();
+		this.departmentNumber = departmentNumber;
+		this.departmentName = departmentName;
+	}
+	
+	public Departments() {
+		super();
+	}
+
 	public String getDepartmentNumber() {
 		return departmentNumber;
 	}
