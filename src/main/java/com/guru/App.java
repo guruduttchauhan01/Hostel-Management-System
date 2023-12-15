@@ -31,6 +31,7 @@ public class App {
 			System.out.print("Enter your input: ");
 			String i = input.nextLine();
 			if(i.equals("5") || i.equals("q") || i.equals("quit")) {
+				input.close();
 				break;
 			} else if (i.equals("1")) {
 				AllOperations.hostelSetUp();
@@ -38,6 +39,10 @@ public class App {
 				AllOperations.studentOperations();
 			} else if (i.equals("3")) {
 				AllOperations.employeeOperations();
+			} else if (i.equals("4")) {
+				AllOperations.getAllStudents();
+			} else {
+				System.out.println("invalid input");
 			}
 		}
 	}

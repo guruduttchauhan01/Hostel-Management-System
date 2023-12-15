@@ -24,10 +24,13 @@ public class Employee {
 	private String lastName;
 	@Column(name = "Gender", length = 10, nullable = false)
 	private char gender;
-	@Column(name = "DOB")
+	@Column(name = "DOB", nullable = false)
 	private Date dob;
+	@Column(nullable = false)
 	private String address;
+	@Column(length = 50, nullable = false)
 	private String contact;
+	@Column(nullable = false)
 	private double salary;
 	
 	@ManyToOne
@@ -37,6 +40,29 @@ public class Employee {
 	@ManyToOne
 	@JoinColumn(name = "hostel_no")
 	private Hostel hostel;
+	
+	
+
+	public Employee(int employeesNumber, String firstName, String lastName, char gender, Date dob, String address,
+			String contact, double salary, Departments department, Hostel hostel) {
+		super();
+		this.employeesNumber = employeesNumber;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.dob = dob;
+		this.address = address;
+		this.contact = contact;
+		this.salary = salary;
+		this.department = department;
+		this.hostel = hostel;
+	}
+	
+	
+	public Employee() {
+		super();
+	}
+
 
 	public int getEmployeesNumber() {
 		return employeesNumber;
@@ -109,6 +135,19 @@ public class Employee {
 	}
 	public void setHostel(Hostel hostel) {
 		this.hostel = hostel;
+	}
+	@Override
+	public String toString() {
+		return "Employee Id: " + employeesNumber
+			+ "\nFirst Name: " + firstName
+			+ "\nLast Name: " + lastName
+			+ "\nGender: " + gender 
+			+ "\nDOB: " + dob
+			+ "\nContact: " + contact 
+			+ "\nAddress: "+ address
+			+ "\nSalary: " + salary 
+			+ "\nDepartment: " + department.getDepartmentName()
+			+ "\nHostel: " + hostel.getHostelName();
 	}
 	
 	

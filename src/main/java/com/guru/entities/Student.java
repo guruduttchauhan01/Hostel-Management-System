@@ -134,7 +134,9 @@ public class Student {
 				+ "\nDOB: " + dob
 				+ "\nEmail: " + email
 				+ "\nContact: " + contact 
-				+ "\nAddress: "+ address;
+				+ "\nAddress: "+ address
+				+ "\nHostel: " + hostel.getHostelName()
+				+ "\nRoom: " + room.getRoomNo();
 	}
 	
 	

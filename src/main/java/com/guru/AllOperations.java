@@ -183,10 +183,13 @@ public class AllOperations {
     		if(option == 1) {
     			System.out.print("Enter employee id: ");
     			int id = input.nextInt();
-    			
-    			es.getEmployee(id);
+    			Employee e = es.getEmployee(id);
+    			System.out.println("\n\n" + "*".repeat(50));
+    			System.out.println(e);
+    			System.out.println("\n\n" + "*".repeat(50));
     			
     		} else if (option == 2) {
+    			input.nextLine();
     			Employee employee = new Employee();
     	    	
     	    	System.out.print("Enter first name: ");
@@ -251,7 +254,6 @@ public class AllOperations {
     	        	}
     	    		String dd = year + "-" + month + "-" + day;
     	    		employee.setDob(Date.valueOf(dd));
-    	    		input.next();
     	    		
     	    		
     	    	System.out.print("Enter address: ");
@@ -268,7 +270,7 @@ public class AllOperations {
     	    	
     	    	while(true) {
     	    		System.out.println(ds.getAllDepartments());
-        	    	
+        	    	System.out.println("*".repeat(50));
         	    	System.out.print("Select one department number and Enter here: ");
         	    	String dep = input.nextLine();
         	    	Departments department = ds.getDepartment(dep);
@@ -289,7 +291,6 @@ public class AllOperations {
     			System.out.println(employeeInserted);
     			continue;
     		} else if (option == 3) {
-    			input.close();
     			return;
     		} else {
     			System.out.println("Invalid Input!!!");
@@ -313,10 +314,13 @@ public class AllOperations {
     		if(option == 1) {
     			System.out.print("Enter student id: ");
     			int id = input.nextInt();
-    			
-    			ss.getStudent(id);
+    			Student s = ss.getStudent(id);
+    			System.out.println("\n\n" + "*".repeat(50));
+    			System.out.println(s);
+    			System.out.println("\n\n" + "*".repeat(50));
     			
     		} else if (option == 2) {
+    			input.nextLine();
     			Student student = new Student();
     	    	
     	    	System.out.print("Enter first name: ");
@@ -381,7 +385,6 @@ public class AllOperations {
     	        	}
     	    		String dd = year + "-" + month + "-" + day;
     	    		student.setDob(Date.valueOf(dd));
-    	    		input.next();
     	    		
     	    		
     	    	System.out.print("Enter address: ");
@@ -416,11 +419,17 @@ public class AllOperations {
     			System.out.println(studentInserted);
     			continue;
     		} else if (option == 3) {
-    			input.close();
     			return;
     		} else {
     			System.out.println("Invalid Input!!!");
     		}
     	}
+	}
+	
+	public static void getAllStudents() {
+		List<Student> students = ss.getAllStudents();
+		for(Student student : students) {
+			System.out.println(student);
+		}
 	}
 }

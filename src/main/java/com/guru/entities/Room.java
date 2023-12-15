@@ -32,6 +32,11 @@ public class Room {
 		this.roomCapacity = roomCapacity;
 		this.hostel = hostel;
 	}
+	
+	public Room() {
+		super();
+	}
+
 	public List<Student> getStudents() {
 		return students;
 	}
