@@ -52,10 +52,10 @@ While the current version of the project focuses on managing a single hostel, fu
 + **User Interface:** Develop a user-friendly interface for administrators, staff, and students.
 + **Additional Functionality:** Implement features such as attendance tracking, event management, and more.
 
-##Entity-Relationship (ER) Diagram
+## Entity-Relationship (ER) Diagram
 Here is the Entity-Relationship Diagram (ERD) for the Hostel Management System:
 
-![ER Diagram](/img/HMS_ER.png)
+![ER Diagram](img/HMS_ER.png)
 
 This diagram illustrates the relationships between various entities in the system, such as Students, Rooms, Fees, etc. Use this ERD as a reference to understand the database structure and relationships within the project.
 
