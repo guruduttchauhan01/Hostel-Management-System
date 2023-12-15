@@ -19,8 +19,6 @@ public class Student {
 	@Column(name = "s_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected int studentId;
-//	@Lob
-//	private byte[] image;
 	@Column(length = 50, nullable = false)
 	private String first_name;
 	@Column(length = 50, nullable = false)
@@ -63,13 +61,7 @@ public class Student {
 	public Student() {
 		super();
 	}
-	
-//	public byte[] getImage() {
-//		return image;
-//	}
-//	public void setImage(byte[] image) {
-//		this.image = image;
-//	}
+
 	public int getStudentId() {
 		return studentId;
 	}
@@ -117,11 +109,11 @@ public class Student {
 		this.address = address;
 	}
 	
-	public Hostel getBlock() {
+	public Hostel getHostel() {
 		return hostel;
 	}
 
-	public void setBlockName(Hostel hostel) {
+	public void setHostelName(Hostel hostel) {
 		this.hostel = hostel;
 	}
 

@@ -7,39 +7,6 @@ public class App {
 	public static Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
-
-		
-//		SessionFactory factory = new Configuration().configure().buildSessionFactory();
-//		
-//		Departments dp = new Departments();
-//		
-//		dp.setDepartmentNumber("SDE001");
-//		dp.setDepartmentName("Software Developer Engineer");
-//		
-//		Employee e = new Employee();
-//		e.setFirstName("Guru");
-//		e.setLastName("Dutt");
-//		e.setDob(Date.valueOf("2000-02-01"));
-//		e.setContact("8278889005");
-//		e.setDepartment(dp);
-//		e.setAddress("Solan");
-//		e.setSalary(20000);
-//		List<Employee> em = new ArrayList<Employee>();
-//		em.add(e);
-//		dp.setEmployee(em);
-//		
-//		Session session = factory.openSession();
-//		
-//		Transaction tx = session.beginTransaction();
-//		
-//		session.save(dp);
-//		session.save(e);
-//		
-//		tx.commit();
-//		
-//		session.close();
-//		factory.close();
-
 		
 		mainOps();
 		

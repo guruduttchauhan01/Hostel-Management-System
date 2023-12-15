@@ -266,7 +266,33 @@ public class AllOperations {
     	    	double salary = input.nextInt();
     	    	employee.setSalary(salary);
     	    	
+    	    	while(true) {
+    	    		System.out.println(ds.getAllDepartments());
+        	    	
+        	    	System.out.print("Select one department number and Enter here: ");
+        	    	String dep = input.nextLine();
+        	    	Departments department = ds.getDepartment(dep);
+        	    	if(department != null) {
+        	    		employee.setDepartment(department);
+        	    		break;
+        	    	} else {
+        	    		System.out.println("Invalid Department number entered");
+        	    	}
+        	    	
+    	    	}
     	    	
+    	    	
+    	    	employee.setHostel(hs.getHostel());
+    	    	
+    	    	Employee employeeInserted = es.createEmployee(employee);
+    			System.out.println("\n\n\t\t\tSuccessfully Inserted Data\n\n\n");
+    			System.out.println(employeeInserted);
+    			continue;
+    		} else if (option == 3) {
+    			input.close();
+    			return;
+    		} else {
+    			System.out.println("Invalid Input!!!");
     		}
     	}
 	}
@@ -369,6 +395,21 @@ public class AllOperations {
     	    	System.out.print("Enter email: ");
     	    	String email = input.nextLine();
     	    	student.setEmail(email);
+    	    	
+    	    	student.setHostelName(hs.getHostel());
+    	    	System.out.println("Room ranges from: " + 1 + " to " + hs.getHostel().getCapacity());
+    	    	while(true) {
+    	    		System.out.print("Enter a room number: ");
+        	    	int roomNumber = input.nextInt();
+        	    	if(roomNumber >= 1 && roomNumber <= hs.getHostel().getCapacity()) {
+        	    		student.setRoomNo(rs.getRoom(roomNumber));
+        	    		break;
+        	    	} else {
+        	    		System.out.println("Invalid Input/exceeds the limit of rooms");
+        	    	}
+        	    	
+    	    	}
+    	    	
     	    	
     	    	Student studentInserted = ss.createStudent(student);
     			System.out.println("\n\n\t\t\tSuccessfully Inserted Data\n\n\n");
