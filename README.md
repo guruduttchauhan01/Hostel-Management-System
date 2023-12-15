@@ -55,7 +55,8 @@ While the current version of the project focuses on managing a single hostel, fu
 ## Entity-Relationship (ER) Diagram
 Here is the Entity-Relationship Diagram (ERD) for the Hostel Management System:
 
-[img/HMS_ER.png](https://github.com/guruduttchauhan01/Hostel-Management-System/blob/main/img/HMS_ER.png)
+![HMS_ER](https://github.com/guruduttchauhan01/Hostel-Management-System/assets/88074892/c28c396e-e901-4bca-8dad-12f5608a1758)
+
 
 This diagram illustrates the relationships between various entities in the system, such as Students, Rooms, Fees, etc. Use this ERD as a reference to understand the database structure and relationships within the project.
 
