@@ -20,5 +20,11 @@ public class HostelServiceImpl implements HostelService {
 		return hostelDao.getHostelName(hostelName);
 	}
 
+	@Override
+	public Hostel getHostel() {
+		// TODO Auto-generated method stub
+		return hostelDao.getHostel();
+	}
+	
 	
 }

@@ -25,13 +25,16 @@ public class Student {
 	private String first_name;
 	@Column(length = 50, nullable = false)
 	private String last_name;
-	@Column(name = "Gender")
+	@Column(name = "Gender", length = 10, nullable = false)
 	private char gender;
 	@Temporal(TemporalType.DATE)
+	@Column(name = "DOB", nullable = false)
 	private Date dob;
-	@Column(length = 50)
+	@Column(length = 50, nullable = false)
 	private String email;
+	@Column(length = 15, nullable = false)
 	private String contact;
+	@Column(nullable = false)
 	private String address;
 	@ManyToOne
 	@JoinColumn(name = "hostel_name")

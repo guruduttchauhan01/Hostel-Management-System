@@ -43,6 +43,13 @@ public class AllOperations {
 	}
 	
 	public static void hostelSetUp() {
+		if(hs.getHostel() != null) {
+			System.out.println("\n\n" + "*".repeat(25) + "Hostel found!!" + "*".repeat(25));
+			System.out.println(hs.getHostel() + "\n");
+			System.out.println("*".repeat(64));
+			return;
+		}
+		
 		String hostelStartUp = """
 				
 				==========================Enter Below Details==========================
@@ -160,10 +167,108 @@ public class AllOperations {
 		}
 	}
 	
-	
+	//Employee Operations
 	public static void employeeOperations() {
-		Employee employee = new Employee();
-		System.out.println(employee);
+		String menu = "-".repeat(50) + "\n"
+    			+ "1. Check Employee details\n"
+    			+ "2. Insert Employee details\n"
+    			+ "3. Exit\n"
+    			+ "NOTE: PICK ONE OPTION FROM ABOVE OPTIONS\n"
+    			+ "-".repeat(50);
+    	while(true) {
+    		System.out.println(menu);
+    		System.out.print("Enter option: ");
+    		int option = input.nextInt();
+    		
+    		if(option == 1) {
+    			System.out.print("Enter employee id: ");
+    			int id = input.nextInt();
+    			
+    			es.getEmployee(id);
+    			
+    		} else if (option == 2) {
+    			Employee employee = new Employee();
+    	    	
+    	    	System.out.print("Enter first name: ");
+    	    	String first_name = input.nextLine();
+    	    	employee.setFirstName(first_name);
+    	    	
+    	    	System.out.print("Enter last name: ");
+    	    	String last_name = input.nextLine();
+    	    	employee.setLastName(last_name);
+    	    	
+    	    	System.out.println("Male/Female/Other");
+    	    	System.out.print("Enter your gender: ");
+    	    	String gender = input.next().toUpperCase();
+    	    	employee.setGender(gender.charAt(0));
+    	    	
+    	    		int year;
+    	    		int currentYear = LocalDate.now().getYear();
+    	        	while(true) {
+    	        		System.out.print("Enter your DOB(Date Of Birth) year: ");
+    	        		year = input.nextInt();
+    	        		if(year >= 1900 && year < currentYear) {
+    	        			break;
+    	        		}else {
+    	        			System.out.println("Not Valid!!!");
+    	        			continue;
+    	        		}
+    	        		
+    	        	}
+    	        	
+    	        	int month;
+    	        	while(true) {
+    	        		System.out.print("Enter your DOB(Date Of Birth in number) month: ");
+    	        		month = input.nextInt();
+    	        		if(month >= 1 && month <= 12) {
+    	        			break;
+    	        		}else {
+    	        			System.out.println("Not Valid!!!");
+    	        			continue;
+    	        		}
+    	        	}
+    	        	int day;
+    	        	while(true) {
+    	        		System.out.print("Enter your DOB(Date Of Birth in number) day: ");
+    	        		day = input.nextInt();
+    	        		input.nextLine();
+    	        		String c = "";
+    	        		switch(month) {
+    	        			case 1: case 3: case 5: case 7: case 8: case 10: case 12: c += "a"; break;
+    	        			case 4: case 6: case 9: case 11: c += "b"; break;
+    	        			case 2 : c += "c"; break;
+    	        		}
+    	        		if(c.equals("a") && day >= 01 && day <= 31) {
+    	        			break;
+    	        		}else if (c.equals("b") && day >= 01 && day <= 30){
+    	        			break;
+    	        		}else if(c.equals("c") && day >= 1 && day <= 29) {
+    	        			break;
+    	        		} else {
+    	        			System.out.println("Not Valid!!!" + c + day + month);
+    	        			continue;
+    	        		}
+    	        	}
+    	    		String dd = year + "-" + month + "-" + day;
+    	    		employee.setDob(Date.valueOf(dd));
+    	    		input.next();
+    	    		
+    	    		
+    	    	System.out.print("Enter address: ");
+    	    	String address = input.nextLine();
+    	    	employee.setAddress(address);
+    	    	
+    	    	System.out.print("Enter contact number: ");
+    	    	String contactNumber = input.nextLine();
+    	    	employee.setContact(contactNumber);
+    	    	
+    	    	System.out.print("Enter salary amount: ");
+    	    	double salary = input.nextInt();
+    	    	employee.setSalary(salary);
+    	    	
+    	    	
+    		}
+    	}
 	}
 	
 	
@@ -265,8 +370,9 @@ public class AllOperations {
     	    	String email = input.nextLine();
     	    	student.setEmail(email);
     	    	
-    	    	ss.createStudent(student);
+    	    	Student studentInserted = ss.createStudent(student);
     			System.out.println("\n\n\t\t\tSuccessfully Inserted Data\n\n\n");
+    			System.out.println(studentInserted);
     			continue;
     		} else if (option == 3) {
     			input.close();

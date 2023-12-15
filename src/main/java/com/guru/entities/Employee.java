@@ -22,6 +22,8 @@ public class Employee {
 	private String firstName;
 	@Column(name = "last_name")
 	private String lastName;
+	@Column(name = "Gender", length = 10, nullable = false)
+	private char gender;
 	@Column(name = "DOB")
 	private Date dob;
 	private String address;
@@ -74,7 +76,15 @@ public class Employee {
 	public String getContact() {
 		return contact;
 	}
+	
+	
 
+	public char getGender() {
+		return gender;
+	}
+	public void setGender(char gender) {
+		this.gender = gender;
+	}
 	public void setContact(String contact) {
 		this.contact = contact;
 	}
